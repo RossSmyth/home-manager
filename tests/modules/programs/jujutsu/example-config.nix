@@ -7,6 +7,7 @@ in {
   programs.jujutsu = {
     enable = true;
     package = config.lib.test.mkStubPackage { };
+    difftastic.enabled = true;
     settings = {
       user = {
         name = "John Doe";
@@ -23,6 +24,9 @@ in {
           [user]
           email = "jdoe@example.org"
           name = "John Doe"
+
+          [ui]
+          diff.tool = ["@difftastic@/bin/difft", ]
         ''
       }
   '';
